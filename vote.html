@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cast Your Vote | Voting Management System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">🗳️ VOTING MANAGEMENT SYSTEM</div>
+    <div class="profile">
+      <span id="voterName">Voter</span>
+      <button class="btn btn-outline btn-sm" onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="main" style="max-width:720px;margin:0 auto;width:100%">
+      <h1>Cast Your Vote</h1>
+
+      <div class="card">
+        <div class="form-group">
+          <label>Select an active election</label>
+          <select id="electionSelect"></select>
+        </div>
+      </div>
+
+      <div id="ballotArea"></div>
+    </div>
+  </div>
+
+  <!-- Receipt modal shown right after a successful vote -->
+  <div class="modal-overlay" id="receiptOverlay">
+    <div class="modal-box">
+      <div class="receipt-box">
+        <div style="font-size:36px">✅</div>
+        <h2>Vote submitted successfully!</h2>
+        <p style="color:#6b7280;font-size:13px">Save this receipt code to verify your vote later</p>
+        <div class="receipt-code" id="receiptCode"></div>
+        <button class="btn btn-primary" onclick="closeReceipt()">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/vote.js"></script>
+</body>
+</html>

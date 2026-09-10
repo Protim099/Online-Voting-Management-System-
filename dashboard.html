@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard | Voting Management System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">🗳️ VOTING MANAGEMENT SYSTEM</div>
+    <nav>
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="elections.html">Elections</a>
+      <a href="candidates.html">Candidates</a>
+      <a href="results.html">Results</a>
+    </nav>
+    <div class="profile">
+      <span id="adminName">Admin</span>
+      <button class="btn btn-outline btn-sm" onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="sidebar">
+      <a href="dashboard.html" class="active">📊 Dashboard</a>
+      <a href="elections.html">🗳️ Elections</a>
+      <a href="candidates.html">👤 Candidates</a>
+      <a href="results.html">📈 Results</a>
+    </div>
+
+    <div class="main">
+      <h1>Dashboard</h1>
+
+      <div class="stats-grid" id="statsGrid">
+        <div class="empty-state">Loading stats…</div>
+      </div>
+
+      <div class="charts-row">
+        <div class="card">
+          <h2>Elections Overview</h2>
+          <canvas id="barChart" height="140"></canvas>
+        </div>
+        <div class="card">
+          <h2>Voter Turnout</h2>
+          <canvas id="doughnutChart" height="140"></canvas>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Recent Elections</h2>
+        <table>
+          <thead><tr><th>Name</th><th>Start</th><th>End</th><th>Status</th></tr></thead>
+          <tbody id="electionsTbody"><tr><td colspan="4" class="empty-state">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

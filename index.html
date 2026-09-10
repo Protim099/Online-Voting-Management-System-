@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login | Voting Management System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="auth-wrapper">
+    <div class="auth-box">
+      <h1>🗳️ Voting Management System</h1>
+      <p class="sub">Sign in to continue</p>
+      <div class="error-msg" id="errorMsg"></div>
+      <form id="loginForm">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="email" required placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="password" required placeholder="••••••••">
+        </div>
+        <button class="btn btn-primary" style="width:100%" type="submit">Login</button>
+      </form>
+      <p style="margin-top:14px;font-size:13px;text-align:center">
+        No account yet? <a href="register.html" style="color:#2f5fd6;font-weight:600">Register as voter</a>
+      </p>
+      <p style="margin-top:10px;font-size:12px;text-align:center;color:#9ca3af">
+        Demo admin: admin@vms.com / admin123 (run <code>npm run seed</code> in backend first)
+      </p>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

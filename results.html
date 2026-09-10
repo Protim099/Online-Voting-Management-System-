@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Results | Voting Management System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">🗳️ VOTING MANAGEMENT SYSTEM</div>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="elections.html">Elections</a>
+      <a href="candidates.html">Candidates</a>
+      <a href="results.html" class="active">Results</a>
+    </nav>
+    <div class="profile">
+      <span id="adminName">Admin</span>
+      <button class="btn btn-outline btn-sm" onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="sidebar">
+      <a href="dashboard.html">📊 Dashboard</a>
+      <a href="elections.html">🗳️ Elections</a>
+      <a href="candidates.html">👤 Candidates</a>
+      <a href="results.html" class="active">📈 Results</a>
+    </div>
+
+    <div class="main">
+      <div class="page-header">
+        <h1>Real-Time Results</h1>
+        <span class="badge ongoing" id="liveBadge">● LIVE</span>
+      </div>
+
+      <div class="card">
+        <div class="form-group" style="max-width:360px">
+          <label>Select election</label>
+          <select id="electionSelect"></select>
+        </div>
+      </div>
+
+      <div class="stats-grid" id="statsGrid"></div>
+
+      <div class="charts-row">
+        <div class="card">
+          <h2>Votes by Candidate</h2>
+          <canvas id="barChart" height="140"></canvas>
+        </div>
+        <div class="card">
+          <h2>Vote Share</h2>
+          <canvas id="pieChart" height="140"></canvas>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Detailed Breakdown</h2>
+        <table>
+          <thead><tr><th>Candidate</th><th>Party</th><th>Position</th><th>Votes</th><th>%</th></tr></thead>
+          <tbody id="resultsTbody"><tr><td colspan="5" class="empty-state">Select an election above</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/results.js"></script>
+</body>
+</html>

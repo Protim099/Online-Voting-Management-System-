@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Elections | Voting Management System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">🗳️ VOTING MANAGEMENT SYSTEM</div>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="elections.html" class="active">Elections</a>
+      <a href="candidates.html">Candidates</a>
+      <a href="results.html">Results</a>
+    </nav>
+    <div class="profile">
+      <span id="adminName">Admin</span>
+      <button class="btn btn-outline btn-sm" onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="sidebar">
+      <a href="dashboard.html">📊 Dashboard</a>
+      <a href="elections.html" class="active">🗳️ Elections</a>
+      <a href="candidates.html">👤 Candidates</a>
+      <a href="results.html">📈 Results</a>
+    </div>
+
+    <div class="main">
+      <div class="page-header">
+        <h1>Elections</h1>
+        <button class="btn btn-primary" onclick="openModal()">+ Create Election</button>
+      </div>
+
+      <div class="card">
+        <table>
+          <thead><tr><th>Name of election</th><th>Start date</th><th>End date</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="electionsTbody"><tr><td colspan="5" class="empty-state">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create election modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box">
+      <h2>Create Election</h2>
+      <div class="error-msg" id="modalError"></div>
+      <form id="electionForm">
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" id="title" required placeholder="e.g. 2026 Student Government Election">
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea id="description" rows="2" placeholder="Optional description"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Start date/time</label>
+            <input type="datetime-local" id="startDate" required>
+          </div>
+          <div class="form-group">
+            <label>End date/time</label>
+            <input type="datetime-local" id="endDate" required>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" onclick="closeModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/elections.js"></script>
+</body>
+</html>
